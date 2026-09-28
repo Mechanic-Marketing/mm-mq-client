@@ -14,7 +14,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(500).json({ error: 'API key not configured' })
   }
 
-  const { model, max_tokens, system, messages } = req.body
+  const { model, max_tokens, system, messages, thinking } = req.body
 
   res.setHeader('Content-Type', 'text/event-stream')
   res.setHeader('Cache-Control', 'no-cache')
@@ -34,6 +34,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         max_tokens,
         system,
         messages,
+        thinking,
         stream: true,
       }),
     })
