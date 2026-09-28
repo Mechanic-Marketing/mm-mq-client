@@ -643,10 +643,11 @@ Go straight into the deliverable. No preamble, no planning notes, no "before wri
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
+          model: 'claude-sonnet-5',
           max_tokens: 3000,
           system: activePrompt,
           messages: [{ role: 'user', content: userMessage }],
+          thinking: { type: 'disabled' },
         }),
       })
 
